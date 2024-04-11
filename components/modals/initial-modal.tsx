@@ -25,7 +25,8 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { usePathname, useRouter } from 'next/navigation';
+import usePlanCreate from '@/stores/plan-store';
+import { useRouter } from 'next/navigation';
 import {
   Select,
   SelectContent,
@@ -47,11 +48,11 @@ const FormCreatePlanSchema = z.object({
   duration: z.string(),
 });
 export const InitialModal = () => {
-  const pathname = usePathname();
-  console.log(pathname);
+  const router = useRouter();
+
   const [isMounted, setIsMounted] = useState(false);
   const [requestPlan, setRequestPlan] = useState(false);
-  const router = useRouter();
+  const { plan, setPlan } = usePlanCreate();
 
   useEffect(() => {
     setIsMounted(true);

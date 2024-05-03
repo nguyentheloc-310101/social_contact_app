@@ -22,7 +22,7 @@ import PlanDescription from '../plan/plan-description';
 
 interface ChatHeaderProps {
   serverId: string;
-  currentMember: Member;
+  currentMember?: Member;
   name: string;
   type: 'channel' | 'conversation';
   imageUrl?: string;
